@@ -83,42 +83,42 @@ function handleMessage(sender_psid, received_message) {
     // will be added to the body of our request to the Send API
     response = {
       // "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
-      // "text": `Hi, My name is Edwin, Nyabingi Studio founder. I'm an indie video game developer and a concept artist. Here are some of my work.`,
-      "message":{
-        "attachment": {
-          "type": "template",
-          "payload": {
-            "template_type": "generic",
-            "elements": [{
-              "title": "Nyabingi Studio portfolio",
-              "subtitle": "Tap a button to continue.",
-              "image_url": "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg",
-              "buttons": [
-                {
-                  "type": "postback",
-                  "title": "Bingiman",
-                  "payload": "bingiman",
-                },
-                {
-                  "type": "postback",
-                  "title": "Makumbusho",
-                  "payload": "makumbusho",
-                },
-                {
-                  "type": "postback",
-                  "title": "Biosimulation",
-                  "payload": "biosimulation",
-                },
-                {
-                  "type": "postback",
-                  "title": "Flesh and Bone",
-                  "payload": "fleshAndBone",
-                }
-              ],
-            }]
-          }
-        }  
-      }
+      "text": `Hi, My name is Edwin, Nyabingi Studio founder. I'm an indie video game developer and a concept artist. Here are some of my work.`,
+      // "message":{
+      //   "attachment": {
+      //     "type": "template",
+      //     "payload": {
+      //       "template_type": "generic",
+      //       "elements": [{
+      //         "title": "Nyabingi Studio portfolio",
+      //         "subtitle": "Tap a button to continue.",
+      //         "image_url": "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg",
+      //         "buttons": [
+      //           {
+      //             "type": "postback",
+      //             "title": "Bingiman",
+      //             "payload": "bingiman",
+      //           },
+      //           {
+      //             "type": "postback",
+      //             "title": "Makumbusho",
+      //             "payload": "makumbusho",
+      //           },
+      //           {
+      //             "type": "postback",
+      //             "title": "Biosimulation",
+      //             "payload": "biosimulation",
+      //           },
+      //           {
+      //             "type": "postback",
+      //             "title": "Flesh and Bone",
+      //             "payload": "fleshAndBone",
+      //           }
+      //         ],
+      //       }]
+      //     }
+      //   }
+      // }
     }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
