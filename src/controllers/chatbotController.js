@@ -82,7 +82,41 @@ function handleMessage(sender_psid, received_message) {
     // Create the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     response = {
-      "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
+      // "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
+      "text": `Hi, "${sender_psid.name}". My name is Edwin, Nyabingi Studio founder. I'm an indie video game developer and a concept artist. Here are some of my work.`,
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Nyabingi Studio portfolio",
+            "subtitle": "Tap a button to continue.",
+            // "image_url": attachment_url,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Bingiman",
+                "payload": "bingiman",
+              },
+              {
+                "type": "postback",
+                "title": "Makumbusho",
+                "payload": "makumbusho",
+              },
+              {
+                "type": "postback",
+                "title": "Biosimulation",
+                "payload": "biosimulation",
+              },
+              {
+                "type": "postback",
+                "title": "Flesh and Bone",
+                "payload": "fleshAndBone",
+              }
+            ],
+          }]
+        }
+      }
     }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
@@ -126,11 +160,79 @@ function handlePostback(sender_psid, received_postback) {
   let payload = received_postback.payload;
 
   // Set the response based on the postback payload
-  if (payload === 'yes') {
-    response = { "text": "Thanks!" }
-  } else if (payload === 'no') {
-    response = { "text": "Oops, try sending another image." }
-  }
+  if (payload === 'bingiman') {
+    response = {
+      "text": "Thanks!",
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "BINGIMAN",
+            "subtitle": "BINGIMAN is a twisted First person shooter inspired by the classic titles like Doom and Quake with a fusion of East African aesthetic. ",
+            "image_url": "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg",
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Download",
+                "payload": "downloadBingi",
+              },
+
+            ],
+          }]
+        }
+      }
+
+     }
+  } else if (payload === 'makumbusho') {
+      response = {
+        "text": "Thanks!",
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": [{
+              "title": "MAKUMBUSHO",
+              "subtitle": "A virtual museum prototype for Andela SDGChallenge. The aim of this project is to make art more accessible to the public during the pandemic as museums are closed by using 3D simulation technology.",
+              "image_url": "https://img.itch.zone/aW1nLzQyNjExODkucG5n/original/%2BWPKWe.png",
+              "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Download",
+                  "payload": "downloadMakumbusho",
+                },
+
+              ],
+            }]
+          }
+        }
+
+       }
+    }else if (payload === 'fleshAndBone') {
+        response = {
+          "text": "Thanks!",
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "generic",
+              "elements": [{
+                "title": "FLESH AND BONE",
+                "subtitle": "A custom deck of cards",
+                "image_url": "https://img.itch.zone/aW1nLzQyNjExODkucG5n/original/%2BWPKWe.png",
+                "buttons": [
+                  {
+                    "type": "postback",
+                    "title": "Download",
+                    "payload": "downloadMakumbusho",
+                  },
+
+                ],
+              }]
+            }
+          }
+
+         }
+      }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
 }
