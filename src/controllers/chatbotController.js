@@ -83,7 +83,7 @@ function handleMessage(sender_psid, received_message) {
     // will be added to the body of our request to the Send API
     response = {
       // "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
-      "text": `Hi, "${sender_psid.name}". My name is Edwin, Nyabingi Studio founder. I'm an indie video game developer and a concept artist. Here are some of my work.`,
+      "text": `Hi, My name is Edwin, Nyabingi Studio founder. I'm an indie video game developer and a concept artist. Here are some of my work.`,
       "attachment": {
         "type": "template",
         "payload": {
