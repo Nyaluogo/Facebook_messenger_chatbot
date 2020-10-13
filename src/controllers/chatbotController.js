@@ -91,7 +91,7 @@ function handleMessage(sender_psid, received_message) {
           "elements": [{
             "title": "Nyabingi Studio portfolio",
             "subtitle": "Tap a button to continue.",
-            // "image_url": attachment_url,
+            "image_url": "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg",
             "buttons": [
               {
                 "type": "postback",
