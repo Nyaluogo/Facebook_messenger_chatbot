@@ -297,6 +297,10 @@ function callSendAPI(sender_psid, response) {
   });
 }
 
+function firstTrait(nlp, name) {
+  return nlp && nlp.entities && nlp.traits[name] && nlp.traits[name][0];
+}
+
 module.exports = {
   test: test,
   getWebhook: getWebhook,
