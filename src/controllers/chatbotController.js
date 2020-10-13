@@ -82,7 +82,7 @@ function handleMessage(sender_psid, received_message)
   if (received_message.text)
   {
     // Create the payload for a basic text message, which
-    let attachment_url = "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg";
+    let bingiman_pic_url = "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg";
     // will be added to the body of our request to the Send API
     response =
     {
@@ -91,23 +91,32 @@ function handleMessage(sender_psid, received_message)
         "type": "template",
         "payload": {
           "template_type": "generic",
-          "elements": [{
-            "title": "Is this the right picture?",
-            "subtitle": "Tap a button to answer.",
-            "image_url": attachment_url,
+          "elements": [
+            {
+            "title": "BINGIMAN",
+            "subtitle": "BINGIMAN is a twisted First person shooter inspired by the classic titles like Doom and Quake with a fusion of East African aesthetic. ",
+            "image_url": bingiman_pic_url,
+            "default_action": {
+                "type": "web_url",
+                "url": "https://nyabingi.itch.io/bingiman",
+                "messenger_extensions": TRUE,
+                "webview_height_ratio": "FULL"
+              },
             "buttons": [
               {
                 "type": "postback",
-                "title": "Yes!",
-                "payload": "yes",
+                "title": "Download",
+                "payload": "bingi_download",
               },
               {
                 "type": "postback",
-                "title": "No!",
-                "payload": "no",
+                "title": "Trailer",
+                "payload": "bingi_trailer",
               }
             ],
-          }]
+          },
+
+        ]
         }
       }
 
