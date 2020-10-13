@@ -78,110 +78,82 @@ function handleMessage(sender_psid, received_message)
 {
   let response;
 
-  // Checks if the message contains text
-  if (received_message.text)
-  {
-    // Create the payload for a basic text message, which
-    let bingiman_pic_url = "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg";
-    let makumbusho_pic_url = "https://img.itch.zone/aW1nLzQyNjExODkucG5n/original/%2BWPKWe.png";
-    // will be added to the body of our request to the Send API
-    response =
-    {
+  // check greeting is here and is confident
+ const greeting = firstTrait(received_message.nlp, 'wit$greetings');
+ if (greeting && greeting.confidence > 0.8) {
+   sendResponse('Chal Nadi!');
+ } else {
+   // default logic
+   // Checks if the message contains text
+   if (received_message.text)
+   {
+     // Create the payload for a basic text message, which
+     let bingiman_pic_url = "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg";
+     let makumbusho_pic_url = "https://img.itch.zone/aW1nLzQyNjExODkucG5n/original/%2BWPKWe.png";
+     // will be added to the body of our request to the Send API
+     response =
+     {
 
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [
-            {
-            "title": "BINGIMAN",
-            "subtitle": "BINGIMAN is a twisted First person shooter for windows platform. ",
-            "image_url": bingiman_pic_url,
-            "default_action": {
-                "type": "web_url",
-                "url": "https://nyabingi.itch.io/bingiman",
-                // "messenger_extensions": TRUE,
-                "webview_height_ratio": "tall"
-              },
-            "buttons": [
-              {
-                "type": "web_url",
-                "url": "https://nyabingi.itch.io/bingiman",
-                "title": "Download"
-              },
-              {
-                "type": "web_url",
-                "url": "https://www.youtube.com/watch?v=hJVsEws_va8&t=1s",
-                "title": "Trailer"
-              }
-            ],
-          },
+       "attachment": {
+         "type": "template",
+         "payload": {
+           "template_type": "generic",
+           "elements": [
+             {
+             "title": "BINGIMAN",
+             "subtitle": "BINGIMAN is a twisted First person shooter for windows platform. ",
+             "image_url": bingiman_pic_url,
+             "default_action": {
+                 "type": "web_url",
+                 "url": "https://nyabingi.itch.io/bingiman",
+                 // "messenger_extensions": TRUE,
+                 "webview_height_ratio": "tall"
+               },
+             "buttons": [
+               {
+                 "type": "web_url",
+                 "url": "https://nyabingi.itch.io/bingiman",
+                 "title": "Download"
+               },
+               {
+                 "type": "web_url",
+                 "url": "https://www.youtube.com/watch?v=hJVsEws_va8&t=1s",
+                 "title": "Trailer"
+               }
+             ],
+           },
 
-          {
-          "title": "MAKUMBUSHO",
-          "subtitle": "Makumbusho is a virtual museum. ",
-          "image_url": makumbusho_pic_url,
-          "default_action": {
-              "type": "web_url",
-              "url": "https://nyabingi.itch.io/makumbusho",
-              // "messenger_extensions": TRUE,
-              "webview_height_ratio": "tall"
-            },
-          "buttons": [
-            {
-              "type": "web_url",
-              "url": "https://nyabingi.itch.io/makumbusho",
-              "title": "Download"
-            },
-            {
-              "type": "web_url",
-              "url": "https://youtu.be/L9K8Toxt68c",
-              "title": "Trailer"
-            }
-          ],
-        },
-        ]
-        }
-      }
+           {
+           "title": "MAKUMBUSHO",
+           "subtitle": "Makumbusho is a virtual museum. ",
+           "image_url": makumbusho_pic_url,
+           "default_action": {
+               "type": "web_url",
+               "url": "https://nyabingi.itch.io/makumbusho",
+               // "messenger_extensions": TRUE,
+               "webview_height_ratio": "tall"
+             },
+           "buttons": [
+             {
+               "type": "web_url",
+               "url": "https://nyabingi.itch.io/makumbusho",
+               "title": "Download"
+             },
+             {
+               "type": "web_url",
+               "url": "https://youtu.be/L9K8Toxt68c",
+               "title": "Trailer"
+             }
+           ],
+         },
+         ]
+         }
+       }
 
-      // "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
-      // "text": `Hi, My name is Edwin, Nyabingi Studio founder. I'm an indie video game developer and a concept artist. Here are some of my work.`,
-
-        // "attachment": {
-        //   "type": "template",
-        //   "payload": {
-        //     "template_type": "generic",
-        //     "elements": [{
-        //       "title": "Nyabingi Studio portfolio",
-        //       "subtitle": "Tap a button to continue.",
-        //       // "image_url": "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg",
-        //       "buttons": [
-        //         {
-        //           "type": "postback",
-        //           "title": "Bingiman",
-        //           "payload": "bingiman",
-        //         },
-        //         {
-        //           "type": "postback",
-        //           "title": "Makumbusho",
-        //           "payload": "makumbusho",
-        //         },
-        //         {
-        //           "type": "postback",
-        //           "title": "Biosimulation",
-        //           "payload": "biosimulation",
-        //         },
-        //         {
-        //           "type": "postback",
-        //           "title": "Flesh and Bone",
-        //           "payload": "fleshAndBone",
-        //         }
-        //       ],
-        //     }]
-        //   }
-        // }
-    }
-  } else if (received_message.attachments) {
+     }
+   }
+ }
+   else if (received_message.attachments) {
     // Get the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
     response = {
