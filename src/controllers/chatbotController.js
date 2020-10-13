@@ -94,19 +94,19 @@ function handleMessage(sender_psid, received_message)
           "elements": [
             {
             "title": "BINGIMAN",
-            "subtitle": "BINGIMAN is a twisted First person shooter inspired by the classic titles like Doom and Quake with a fusion of East African aesthetic. ",
+            "subtitle": "BINGIMAN is a twisted First person shooter an East African aesthetic. ",
             "image_url": bingiman_pic_url,
             "default_action": {
                 "type": "web_url",
                 "url": "https://nyabingi.itch.io/bingiman",
-                "messenger_extensions": TRUE,
-                "webview_height_ratio": "FULL"
+                // "messenger_extensions": TRUE,
+                "webview_height_ratio": "tall"
               },
             "buttons": [
               {
-                "type": "postback",
-                "title": "Download",
-                "payload": "bingi_download",
+                "type": "web_url",
+                "url": "https://nyabingi.itch.io/bingiman",
+                "title": "Download"
               },
               {
                 "type": "postback",
