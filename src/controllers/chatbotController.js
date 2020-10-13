@@ -83,6 +83,7 @@ function handleMessage(sender_psid, received_message)
   {
     // Create the payload for a basic text message, which
     let bingiman_pic_url = "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg";
+    let makumbusho_pic_url = "https://img.itch.zone/aW1nLzQyNjExODkucG5n/original/%2BWPKWe.png";
     // will be added to the body of our request to the Send API
     response =
     {
@@ -94,7 +95,7 @@ function handleMessage(sender_psid, received_message)
           "elements": [
             {
             "title": "BINGIMAN",
-            "subtitle": "BINGIMAN is a twisted First person shooter an East African aesthetic. ",
+            "subtitle": "BINGIMAN is a twisted First person shooter for windows platform. ",
             "image_url": bingiman_pic_url,
             "default_action": {
                 "type": "web_url",
@@ -109,13 +110,36 @@ function handleMessage(sender_psid, received_message)
                 "title": "Download"
               },
               {
-                "type": "postback",
-                "title": "Trailer",
-                "payload": "bingi_trailer",
+                "type": "web_url",
+                "url": "https://www.youtube.com/watch?v=hJVsEws_va8&t=1s",
+                "title": "Trailer"
               }
             ],
           },
 
+          {
+          "title": "MAKUMBUSHO",
+          "subtitle": "Makumbusho is a virtual museum. ",
+          "image_url": makumbusho_pic_url,
+          "default_action": {
+              "type": "web_url",
+              "url": "https://nyabingi.itch.io/makumbusho",
+              // "messenger_extensions": TRUE,
+              "webview_height_ratio": "tall"
+            },
+          "buttons": [
+            {
+              "type": "web_url",
+              "url": "https://nyabingi.itch.io/makumbusho",
+              "title": "Download"
+            },
+            {
+              "type": "web_url",
+              "url": "https://youtu.be/L9K8Toxt68c",
+              "title": "Trailer"
+            }
+          ],
+        },
         ]
         }
       }
