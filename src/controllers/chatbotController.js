@@ -84,6 +84,37 @@ function handleMessage(sender_psid, received_message) {
     response = {
       // "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
       "text": `Hi, My name is Edwin, Nyabingi Studio founder. I'm an indie video game developer and a concept artist. Here are some of my work.`,
+      "payload": {
+        "template_type": "generic",
+        "elements": [{
+          "title": "Nyabingi Studio portfolio",
+          "subtitle": "Tap a button to continue.",
+          "image_url": "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg",
+          "buttons": [
+            {
+              "type": "postback",
+              "title": "Bingiman",
+              "payload": "bingiman",
+            },
+            {
+              "type": "postback",
+              "title": "Makumbusho",
+              "payload": "makumbusho",
+            },
+            {
+              "type": "postback",
+              "title": "Biosimulation",
+              "payload": "biosimulation",
+            },
+            {
+              "type": "postback",
+              "title": "Flesh and Bone",
+              "payload": "fleshAndBone",
+            }
+          ],
+        }]
+      }
+
       // "message":{
       //   "attachment": {
       //     "type": "template",
