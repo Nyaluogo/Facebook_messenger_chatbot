@@ -82,45 +82,71 @@ function handleMessage(sender_psid, received_message)
   if (received_message.text)
   {
     // Create the payload for a basic text message, which
+    let attachment_url = "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg";
     // will be added to the body of our request to the Send API
     response =
     {
+
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Is this the right picture?",
+            "subtitle": "Tap a button to answer.",
+            "image_url": attachment_url,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Yes!",
+                "payload": "yes",
+              },
+              {
+                "type": "postback",
+                "title": "No!",
+                "payload": "no",
+              }
+            ],
+          }]
+        }
+      }
+
       // "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
       // "text": `Hi, My name is Edwin, Nyabingi Studio founder. I'm an indie video game developer and a concept artist. Here are some of my work.`,
 
-        "attachment": {
-          "type": "template",
-          "payload": {
-            "template_type": "generic",
-            "elements": [{
-              "title": "Nyabingi Studio portfolio",
-              "subtitle": "Tap a button to continue.",
-              // "image_url": "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg",
-              "buttons": [
-                {
-                  "type": "postback",
-                  "title": "Bingiman",
-                  "payload": "bingiman",
-                },
-                {
-                  "type": "postback",
-                  "title": "Makumbusho",
-                  "payload": "makumbusho",
-                },
-                {
-                  "type": "postback",
-                  "title": "Biosimulation",
-                  "payload": "biosimulation",
-                },
-                {
-                  "type": "postback",
-                  "title": "Flesh and Bone",
-                  "payload": "fleshAndBone",
-                }
-              ],
-            }]
-          }
-        }
+        // "attachment": {
+        //   "type": "template",
+        //   "payload": {
+        //     "template_type": "generic",
+        //     "elements": [{
+        //       "title": "Nyabingi Studio portfolio",
+        //       "subtitle": "Tap a button to continue.",
+        //       // "image_url": "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg",
+        //       "buttons": [
+        //         {
+        //           "type": "postback",
+        //           "title": "Bingiman",
+        //           "payload": "bingiman",
+        //         },
+        //         {
+        //           "type": "postback",
+        //           "title": "Makumbusho",
+        //           "payload": "makumbusho",
+        //         },
+        //         {
+        //           "type": "postback",
+        //           "title": "Biosimulation",
+        //           "payload": "biosimulation",
+        //         },
+        //         {
+        //           "type": "postback",
+        //           "title": "Flesh and Bone",
+        //           "payload": "fleshAndBone",
+        //         }
+        //       ],
+        //     }]
+        //   }
+        // }
     }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
