@@ -284,7 +284,8 @@ function callSendAPI(sender_psid, response) {
 
   // Send the HTTP request to the Messenger Platform
   request({
-    "uri": "https://graph.facebook.com/v7.0/me/messages",
+    // "uri": "https://graph.facebook.com/v7.0/me/messages",
+    "uri": "https://graph.facebook.com/v7.0/me/nlp_configs?nlp_enabled=$NLP_ENABLED",
     "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
     "method": "POST",
     "json": request_body
