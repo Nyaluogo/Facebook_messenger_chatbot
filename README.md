@@ -127,3 +127,20 @@ function handleMessage(sender_psid, received_message)
 }
 
 </code></pre>
+
+<ul>
+  <li>Step 4. Create new app on facebook</li>
+  <p>To create a chatbot we need two things, 1. A Facebook public page to connect with our bot and 2. A Facebook Developer application, which will be connected to your webhook server and your public page, and work as a middleware between them.</p>
+  
+  <p> To create a page go to <a href="http://facebook.com/pages/create">facebook.com/pages/create</a> Choose a category, subcategory and click Get Started.</p>
+  <p> To create an app got to <a href="http://developers.facebook.com/quickstarts">http://developers.facebook.com/quickstarts</a> give your Facebook app a name, type in your e-mail, and then click the “Create App ID” button</p>
+  <p>After creating the App, you have to select a product. Click the“Messenger” icon and then click on the “Set Up” button. This will redirect you to the Messenger Platform.
+Once you’re there, you must locate the “Token Generation” section. Select the page you already created, and it will give you a Page Access Token that we will use later.</p>
+<p>Below this section is the Webhooks section. Click on “Setup Webhooks” and it will show you a popup window, where you’ll need to fill out the following:
+  <li>Callback url</li>
+  <li>Verify Token</li>
+  <li>Subscription Fields</li>
+  <p>Click verify and save button.</p>
+</p>
+    
+</ul>
