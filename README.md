@@ -12,6 +12,11 @@ Facebook page
     <li>Step 2: Download all the files in this repository.</li>
     <li>Step 3: Go to src/controllers/chatbotController.js</li>
   <p> Edit chatbotController.js</p>
+
+  </ul>
+  
+  
+<code>
   // Handles messages events
 function handleMessage(sender_psid, received_message)
 {
@@ -122,6 +127,4 @@ function handleMessage(sender_psid, received_message)
   callSendAPI(sender_psid, response);
 }
 
-  </ul>
-  
-  
+</code>
