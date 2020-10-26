@@ -83,9 +83,12 @@ function handleMessage(sender_psid, received_message)
   if (received_message.text)
   {
     // Create the payload for a basic text message, which
+    // will be added to the body of our request to the Send API
+    
+    //replace with your urls
     let bingiman_pic_url = "https://img.itch.zone/aW1nLzM1MzgwMDcuanBn/original/xFSb5J.jpg";
     let makumbusho_pic_url = "https://img.itch.zone/aW1nLzQyNjExODkucG5n/original/%2BWPKWe.png";
-    // will be added to the body of our request to the Send API
+    
     response =
     {
 
@@ -95,49 +98,49 @@ function handleMessage(sender_psid, received_message)
           "template_type": "generic",
           "elements": [
             {
-            "title": "BINGIMAN",
-            "subtitle": "BINGIMAN is a twisted First person shooter for windows platform. ",
+            "title": "BINGIMAN",//replace with your title
+            "subtitle": "BINGIMAN is a twisted First person shooter for windows platform. ",//replace with your subtitle
             "image_url": bingiman_pic_url,
             "default_action": {
                 "type": "web_url",
-                "url": "https://nyabingi.itch.io/bingiman",
+                "url": "https://nyabingi.itch.io/bingiman",//replace with your url
                 // "messenger_extensions": TRUE,
                 "webview_height_ratio": "tall"
               },
             "buttons": [
               {
                 "type": "web_url",
-                "url": "https://nyabingi.itch.io/bingiman",
-                "title": "Download"
+                "url": "https://nyabingi.itch.io/bingiman",//replace with your url
+                "title": "Download"//replace with your call to action
               },
               {
                 "type": "web_url",
-                "url": "https://www.youtube.com/watch?v=hJVsEws_va8&t=1s",
-                "title": "Trailer"
+                "url": "https://www.youtube.com/watch?v=hJVsEws_va8&t=1s",//replace with your url
+                "title": "Trailer"//replace with your title
               }
             ],
           },
 
           {
-          "title": "MAKUMBUSHO",
-          "subtitle": "Makumbusho is a virtual museum. ",
+          "title": "MAKUMBUSHO",//replace with your title
+          "subtitle": "Makumbusho is a virtual museum. ",//replace with your subtitle
           "image_url": makumbusho_pic_url,
           "default_action": {
               "type": "web_url",
-              "url": "https://nyabingi.itch.io/makumbusho",
+              "url": "https://nyabingi.itch.io/makumbusho",//replace with your url
               // "messenger_extensions": TRUE,
               "webview_height_ratio": "tall"
             },
           "buttons": [
             {
               "type": "web_url",
-              "url": "https://nyabingi.itch.io/makumbusho",
-              "title": "Download"
+              "url": "https://nyabingi.itch.io/makumbusho",//replace with your url
+              "title": "Download"//replace with your call to action
             },
             {
               "type": "web_url",
-              "url": "https://youtu.be/L9K8Toxt68c",
-              "title": "Trailer"
+              "url": "https://youtu.be/L9K8Toxt68c",//replace with your url
+              "title": "Trailer"//replace with your title
             }
           ],
         },
